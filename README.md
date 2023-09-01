@@ -14,7 +14,7 @@
 <br />
 1 - Execute o seguinte comando no diretório raiz do projeto **npm run dev**
 <br />
-2 - O endereço para acessar o fronted aparecerá no terminal, porém, por padrão deve ser o **localhost:5173**
+2 - O endereço para acessar o fronted aparecerá no terminal, porém, por padrão deve ser o **http://localhost:5173**
 
 
 
