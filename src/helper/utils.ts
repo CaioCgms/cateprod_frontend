@@ -1,3 +1,3 @@
 export const getBaseRoute = () => {
-    return 'http://127.0.0.1:8000/api';
+    return import.meta.env.VITE_API_HOST;
 }
