@@ -15,8 +15,7 @@ const router = createRouter({
     routes : [
         {
             path: '/',
-            name: 'Categorias',
-            component: ListCategories
+            redirect: '/categories'
         },
         {
             path: '/categories',
