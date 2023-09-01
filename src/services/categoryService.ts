@@ -5,7 +5,9 @@ import type CategoryInterface from '@/components/interfaces/CategoryInterface';
 
 // Pega uma lista de categorias
 export const getCategories = async (): Promise<Array<CategoryInterface>> => {
-    const response = await axios.get(getBaseRoute() + '/categories');
+    const response = await axios.get(getBaseRoute() + '/categories', {validateStatus: function (status) {
+        return status < 500;
+    }});
 
     var categories : Array<any> = [];
 
@@ -18,24 +20,58 @@ export const getCategories = async (): Promise<Array<CategoryInterface>> => {
 
 // Pega uma ategoria por id
 export const getCategory = async (id : Number): Promise<CategoryInterface> => {
-    const response = await axios.get(`${getBaseRoute()}/categories/${id}`);
+    const response = await axios.get(`${getBaseRoute()}/categories/${id}`, {validateStatus: function (status) {
+        return status < 500;
+    }});
+
+    // Mostrar erro
+    if (response?.status != 200) {
+        alert('Error: ' + response?.data);
+    }
+
     return createCategoryObject(response?.data) || null;
 }
 
 // Atualiza uma determinada categoria
 export const updateCategory = async (category : CategoryInterface): Promise<CategoryInterface> => {
-    const response = await axios.put(`${getBaseRoute()}/categories/${category.id}`, category);
+    const response = await axios.put(`${getBaseRoute()}/categories/${category.id}`, category, {validateStatus: function (status) {
+        return status < 500;
+    }});
+
+    alert(response?.status)
+
+    // Mostrar erro
+    if (response?.status != 200) {
+        alert('Error: ' + response?.data?.name);
+    }
+
     return createCategoryObject(response?.data) || null;
 }
 
 // Armazena uma determinada categoria
 export const storeCategory = async (category : CategoryInterface): Promise<CategoryInterface> => {
-    const response = await axios.post(`${getBaseRoute()}/categories`, category);
+    const response = await axios.post(`${getBaseRoute()}/categories`, category, {validateStatus: function (status) {
+        return status < 500;
+    }});
+
+    // Mostrar erro
+    if (response?.status != 200 && response?.status != 201) {
+        alert('Error: ' + response?.data?.name);
+    }
+
     return createCategoryObject(response?.data) || null;
 }
 
 export const deleteCategory = async (id : Number): Promise<any> => {
-    const response = await axios.delete(`${getBaseRoute()}/categories/${id}`);
+    const response = await axios.delete(`${getBaseRoute()}/categories/${id}`, {validateStatus: function (status) {
+        return status < 500;
+    }});
+
+    // Mostrar erro
+    if (response?.status != 200) {
+        alert('Error: ' + response?.data);
+    }
+
     return response?.data || false;
 }
 
