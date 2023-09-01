@@ -34,7 +34,7 @@ export const storeCategory = async (category : CategoryInterface): Promise<Categ
     return createCategoryObject(response?.data) || null;
 }
 
-export const deleteCategory = async (id : Number): Promise<boolean> => {
+export const deleteCategory = async (id : Number): Promise<any> => {
     const response = await axios.delete(`${getBaseRoute()}/categories/${id}`);
     return response?.data || false;
 }

@@ -4,8 +4,8 @@ import {reactive} from 'vue';
 import type ProductInterface from '@/components/interfaces/ProductInterface';
 
 // Pega uma lista de produtos
-export const getProducts = async () => {
-    const response = await axios.get(getBaseRoute() + '/products');
+export const getProducts = async (query : String | null | undefined) => {
+    const response = await axios.get(`${getBaseRoute()}/products${query}`);
 
     var products : Array<any> = [];
 
@@ -50,7 +50,7 @@ const createProductObject = (productRaw : any) => {
         updated: productRaw.updated,
         created: productRaw.created,
         category_id: productRaw.category_id,
-        category: null
+        category: productRaw.category
     });
 }
 
