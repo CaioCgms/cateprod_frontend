@@ -38,8 +38,6 @@ export const updateCategory = async (category : CategoryInterface): Promise<Cate
         return status < 500;
     }});
 
-    alert(response?.status)
-
     // Mostrar erro
     if (response?.status != 200) {
         alert('Error: ' + response?.data?.name);
