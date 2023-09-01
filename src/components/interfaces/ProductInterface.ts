@@ -1,6 +1,6 @@
 import type CategoryInterface from "./CategoryInterface"
 
-interface ProductInterface{
+export default interface ProductInterface{
     name: String | null,
     updated: Date | null | undefined
     created: Date | null | undefined

@@ -50,8 +50,13 @@
   }
 }
 
-*{
-  box-shadow: 0 0 0 1px red, 0 0 0 1px green;
+
+.viewer,
+.custom-form{
+  background-color: #fafafa;
+  padding: 1rem 2rem;
+  margin: 1rem auto;
+  border: 1px solid rgba(235, 235, 235, 0.64);
 }
 
 *,

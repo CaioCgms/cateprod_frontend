@@ -30,6 +30,6 @@ import NotFound from './components/NotFound.vue'
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: cyan;
+    background-color: #fefefe;
   }
 </style>
